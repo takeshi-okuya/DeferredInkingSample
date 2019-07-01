@@ -23,7 +23,7 @@ Material:
     - _Cull: 0
     - _DepthBias: 0.005
     - _DepthThreshold: 1
-    - _OutlineWidth: 0.005
+    - _OutlineWidth: 0.002
     - _Use_Depth: 0
     - _Use_Object_ID: 1
     m_Colors:

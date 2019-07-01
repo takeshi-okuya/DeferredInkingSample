@@ -270,52 +270,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b61cd86991956742a3f540788d9d2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 87e1d462426fa904bbb8ff835547eafb, type: 2}
   modelID: 1
   meshes:
   - mesh: {fileID: 373926934}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 1
   - mesh: {fileID: 456343850}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 255
   - mesh: {fileID: 1796991131}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 100
   - mesh: {fileID: 1379590958}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 101
   - mesh: {fileID: 1186386378}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 102
   - mesh: {fileID: 855861996}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 594917999}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 40553566}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 243324503}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1696541632}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1719880150}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1193714415}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 244536863}
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1430574709}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 10
   - mesh: {fileID: 2068507191}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 11
 --- !u!137 &1186386378 stripped
@@ -362,10 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b61cd86991956742a3f540788d9d2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 87e1d462426fa904bbb8ff835547eafb, type: 2}
   modelID: 2
   meshes:
   - mesh: {fileID: 1275640186}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 93
 --- !u!64 &1275640185
@@ -554,10 +568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b61cd86991956742a3f540788d9d2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 87e1d462426fa904bbb8ff835547eafb, type: 2}
   modelID: 58
   meshes:
   - mesh: {fileID: 1510924489}
+    material: {fileID: 2100000, guid: 524dab2dabf51654fa24954147101d56, type: 2}
     gBufferCulling: 0
     meshID: 47
 --- !u!135 &1510924488
@@ -1081,18 +1095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b61cd86991956742a3f540788d9d2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
   modelID: 255
   meshes:
   - mesh: {fileID: 2081311902}
-    gBufferCulling: 0
-    meshID: 0
-  - mesh: {fileID: 2081311902}
-    gBufferCulling: 0
-    meshID: 0
-  - mesh: {fileID: 2081311902}
-    gBufferCulling: 0
-    meshID: 0
-  - mesh: {fileID: 2081311902}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     gBufferCulling: 0
     meshID: 0
