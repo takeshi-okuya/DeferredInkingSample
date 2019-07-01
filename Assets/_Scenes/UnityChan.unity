@@ -281,7 +281,7 @@ MonoBehaviour:
     gBufferCulling: 0
     meshID: 255
   - mesh: {fileID: 1796991131}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
     gBufferCulling: 0
     meshID: 100
   - mesh: {fileID: 1379590958}
@@ -289,11 +289,11 @@ MonoBehaviour:
     gBufferCulling: 0
     meshID: 101
   - mesh: {fileID: 1186386378}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
     gBufferCulling: 0
     meshID: 102
   - mesh: {fileID: 855861996}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 594917999}
@@ -325,7 +325,7 @@ MonoBehaviour:
     gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1430574709}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    material: {fileID: 2100000, guid: 78423a276f5bcee4e85a0f938a4dba60, type: 2}
     gBufferCulling: 0
     meshID: 10
   - mesh: {fileID: 2068507191}
