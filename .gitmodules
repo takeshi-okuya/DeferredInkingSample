@@ -1,0 +1,3 @@
+[submodule "Assets/_DeferredInking"]
+	path = Assets/_DeferredInking
+	url = https://github.com/Waseda-CG-Library/UnityDeferredInking.git
