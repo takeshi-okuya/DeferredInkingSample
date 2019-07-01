@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c3fe87247db304c83be595e75e901a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sigma: 1
+  gBufferResolutionMode: 3
+  customGBufferResolution: {x: 3840, y: 2160}
 --- !u!81 &43692535
 AudioListener:
   m_ObjectHideFlags: 0
@@ -271,34 +274,49 @@ MonoBehaviour:
   modelID: 1
   meshes:
   - mesh: {fileID: 373926934}
+    gBufferCulling: 0
     meshID: 1
   - mesh: {fileID: 456343850}
+    gBufferCulling: 0
     meshID: 255
   - mesh: {fileID: 1796991131}
+    gBufferCulling: 0
     meshID: 100
   - mesh: {fileID: 1379590958}
+    gBufferCulling: 0
     meshID: 101
   - mesh: {fileID: 1186386378}
+    gBufferCulling: 0
     meshID: 102
   - mesh: {fileID: 855861996}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 594917999}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 40553566}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 243324503}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1696541632}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1719880150}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1193714415}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 244536863}
+    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1430574709}
+    gBufferCulling: 0
     meshID: 10
   - mesh: {fileID: 2068507191}
+    gBufferCulling: 0
     meshID: 11
 --- !u!137 &1186386378 stripped
 SkinnedMeshRenderer:
@@ -348,6 +366,7 @@ MonoBehaviour:
   modelID: 2
   meshes:
   - mesh: {fileID: 1275640186}
+    gBufferCulling: 0
     meshID: 93
 --- !u!64 &1275640185
 MeshCollider:
@@ -539,6 +558,7 @@ MonoBehaviour:
   modelID: 58
   meshes:
   - mesh: {fileID: 1510924489}
+    gBufferCulling: 0
     meshID: 47
 --- !u!135 &1510924488
 SphereCollider:
@@ -1065,10 +1085,14 @@ MonoBehaviour:
   modelID: 255
   meshes:
   - mesh: {fileID: 2081311902}
+    gBufferCulling: 0
     meshID: 0
   - mesh: {fileID: 2081311902}
+    gBufferCulling: 0
     meshID: 0
   - mesh: {fileID: 2081311902}
+    gBufferCulling: 0
     meshID: 0
   - mesh: {fileID: 2081311902}
+    gBufferCulling: 0
     meshID: 0
