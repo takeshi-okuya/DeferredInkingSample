@@ -246,6 +246,12 @@ SkinnedMeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &684551514 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700010, guid: 8f0565f23a2b58541a475bd3c1393052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796991130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &855861996 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700014, guid: 8f0565f23a2b58541a475bd3c1393052,
@@ -271,52 +277,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelID: 1
-  meshes:
-  - mesh: {fileID: 373926934}
+  lineMaterials:
+  - enable: 1
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    meshID: 1
-  - mesh: {fileID: 456343850}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    meshID: 255
-  - mesh: {fileID: 1796991131}
+    materialID: 0
+    meshes:
+    - mesh: {fileID: 373926934}
+      meshID: 0
+    - mesh: {fileID: 456343850}
+      meshID: 1
+    - mesh: {fileID: 1379590958}
+      meshID: 2
+    - mesh: {fileID: 1260519831}
+      meshID: 3
+  - enable: 1
+    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
+    materialID: 1
+    meshes:
+    - mesh: {fileID: 594917999}
+      meshID: 0
+    - mesh: {fileID: 40553566}
+      meshID: 0
+    - mesh: {fileID: 243324503}
+      meshID: 0
+    - mesh: {fileID: 1696541632}
+      meshID: 0
+    - mesh: {fileID: 1719880150}
+      meshID: 0
+    - mesh: {fileID: 1193714415}
+      meshID: 0
+    - mesh: {fileID: 244536863}
+      meshID: 0
+  - enable: 1
     material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    meshID: 100
-  - mesh: {fileID: 1379590958}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    meshID: 101
-  - mesh: {fileID: 1186386378}
-    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    meshID: 102
-  - mesh: {fileID: 855861996}
-    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    meshID: 106
-  - mesh: {fileID: 594917999}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 40553566}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 243324503}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 1696541632}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 1719880150}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 1193714415}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 244536863}
-    material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    meshID: 106
-  - mesh: {fileID: 1430574709}
+    materialID: 2
+    meshes:
+    - mesh: {fileID: 1186386378}
+      meshID: 0
+    - mesh: {fileID: 1796991131}
+      meshID: 1
+    - mesh: {fileID: 684551514}
+      meshID: 2
+    - mesh: {fileID: 855861996}
+      meshID: 3
+    - mesh: {fileID: 1381816796}
+      meshID: 4
+  - enable: 1
     material: {fileID: 2100000, guid: 78423a276f5bcee4e85a0f938a4dba60, type: 2}
-    meshID: 10
-  - mesh: {fileID: 2068507191}
-    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    meshID: 11
+    materialID: 3
+    meshes:
+    - mesh: {fileID: 1430574709}
+      meshID: 0
 --- !u!137 &1186386378 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700012, guid: 8f0565f23a2b58541a475bd3c1393052,
@@ -326,6 +337,12 @@ SkinnedMeshRenderer:
 --- !u!23 &1193714415 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300004, guid: 8f0565f23a2b58541a475bd3c1393052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796991130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1260519831 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700036, guid: 8f0565f23a2b58541a475bd3c1393052,
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}
@@ -362,10 +379,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelID: 2
-  meshes:
-  - mesh: {fileID: 1275640186}
+  lineMaterials:
+  - enable: 1
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    meshID: 93
+    materialID: 1
+    meshes:
+    - mesh: {fileID: 1275640186}
+      meshID: 0
 --- !u!64 &1275640185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -514,6 +534,12 @@ SkinnedMeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1381816796 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700032, guid: 8f0565f23a2b58541a475bd3c1393052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796991130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &1430574709 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700016, guid: 8f0565f23a2b58541a475bd3c1393052,
@@ -553,10 +579,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelID: 58
-  meshes:
-  - mesh: {fileID: 1510924489}
+  lineMaterials:
+  - enable: 1
     material: {fileID: 2100000, guid: 524dab2dabf51654fa24954147101d56, type: 2}
-    meshID: 47
+    materialID: 0
+    meshes:
+    - mesh: {fileID: 1510924489}
+      meshID: 0
 --- !u!135 &1510924488
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -810,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100330, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.z
@@ -860,6 +889,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2909d73e3e58c3d468707099321d2262, type: 2}
+    - target: {fileID: 9500000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100144, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -960,17 +993,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100324, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
 --- !u!137 &1796991131 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700030, guid: 8f0565f23a2b58541a475bd3c1393052,
-    type: 3}
-  m_PrefabInstance: {fileID: 1796991130}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &2068507191 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700018, guid: 8f0565f23a2b58541a475bd3c1393052,
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}
@@ -1078,8 +1109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b61cd86991956742a3f540788d9d2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelID: 255
-  meshes:
-  - mesh: {fileID: 2081311902}
+  modelID: 4
+  lineMaterials:
+  - enable: 1
     material: {fileID: 2100000, guid: e2305e82d54b14646a39f1335778c019, type: 2}
-    meshID: 0
+    materialID: 0
+    meshes:
+    - mesh: {fileID: 2081311902}
+      meshID: 0
