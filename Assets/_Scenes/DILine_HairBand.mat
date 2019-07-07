@@ -21,9 +21,12 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Cull: 0
-    - _DepthThreshold: 0.1
+    - _DepthRange: 0.2
+    - _DepthThreshold: 0.025
+    - _NormalThreshold: 0.5
     - _OutlineWidth: 0.002
     - _Use_Depth: 1
+    - _Use_Normal: 0
     - _Use_Object_ID: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
