@@ -274,63 +274,48 @@ MonoBehaviour:
   meshes:
   - mesh: {fileID: 373926934}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    gBufferCulling: 0
     meshID: 1
   - mesh: {fileID: 456343850}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    gBufferCulling: 0
     meshID: 255
   - mesh: {fileID: 1796991131}
     material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    gBufferCulling: 0
     meshID: 100
   - mesh: {fileID: 1379590958}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    gBufferCulling: 0
     meshID: 101
   - mesh: {fileID: 1186386378}
     material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    gBufferCulling: 0
     meshID: 102
   - mesh: {fileID: 855861996}
     material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 594917999}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 40553566}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 243324503}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1696541632}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1719880150}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1193714415}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 244536863}
     material: {fileID: 2100000, guid: be874d2ecc336544cab016f08f13ead6, type: 2}
-    gBufferCulling: 0
     meshID: 106
   - mesh: {fileID: 1430574709}
     material: {fileID: 2100000, guid: 78423a276f5bcee4e85a0f938a4dba60, type: 2}
-    gBufferCulling: 0
     meshID: 10
   - mesh: {fileID: 2068507191}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    gBufferCulling: 0
     meshID: 11
 --- !u!137 &1186386378 stripped
 SkinnedMeshRenderer:
@@ -380,7 +365,6 @@ MonoBehaviour:
   meshes:
   - mesh: {fileID: 1275640186}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
-    gBufferCulling: 0
     meshID: 93
 --- !u!64 &1275640185
 MeshCollider:
@@ -572,7 +556,6 @@ MonoBehaviour:
   meshes:
   - mesh: {fileID: 1510924489}
     material: {fileID: 2100000, guid: 524dab2dabf51654fa24954147101d56, type: 2}
-    gBufferCulling: 0
     meshID: 47
 --- !u!135 &1510924488
 SphereCollider:
@@ -1099,5 +1082,4 @@ MonoBehaviour:
   meshes:
   - mesh: {fileID: 2081311902}
     material: {fileID: 2100000, guid: e2305e82d54b14646a39f1335778c019, type: 2}
-    gBufferCulling: 0
     meshID: 0
