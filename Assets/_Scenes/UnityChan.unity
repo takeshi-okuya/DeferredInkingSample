@@ -317,6 +317,9 @@ MonoBehaviour:
   - mesh: {fileID: 2068507191}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
     meshID: 11
+  - mesh: {fileID: 1796991132}
+    material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    meshID: 12
 --- !u!137 &1186386378 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700012, guid: 8f0565f23a2b58541a475bd3c1393052,
@@ -965,6 +968,12 @@ PrefabInstance:
 --- !u!137 &1796991131 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700030, guid: 8f0565f23a2b58541a475bd3c1393052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796991130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1796991132 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700026, guid: 8f0565f23a2b58541a475bd3c1393052,
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}
