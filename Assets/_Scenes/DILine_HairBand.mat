@@ -24,7 +24,7 @@ Material:
     - _DepthRange: 0.2
     - _DepthThreshold: 0.025
     - _NormalThreshold: 0.5
-    - _OutlineWidth: 0.002
+    - _OutlineWidth: 2
     - _Use_Depth: 1
     - _Use_Normal: 0
     - _Use_Object_ID: 1
