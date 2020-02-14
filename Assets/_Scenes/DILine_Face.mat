@@ -23,10 +23,10 @@ Material:
     - _Cull: 0
     - _DepthRange: 0.2
     - _DepthThreshold: 1
-    - _MaxWidth: 2
+    - _MaxWidth: 40
     - _MinWidth: 0.5
     - _NormalThreshold: 0.5
-    - _OutlineWidth: 1
+    - _OutlineWidth: 2
     - _Use_Depth: 0
     - _Use_Normal: 0
     - _Use_Object_ID: 1

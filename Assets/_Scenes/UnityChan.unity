@@ -183,10 +183,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
-  field of view: 24
+  far clip plane: 100
+  field of view: 27
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 0.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -319,6 +319,9 @@ MonoBehaviour:
     meshID: 11
   - mesh: {fileID: 1796991132}
     material: {fileID: 2100000, guid: 3c813f658de982a4b92abd746ff5c145, type: 2}
+    meshID: 12
+  - mesh: {fileID: 1796991133}
+    material: {fileID: 2100000, guid: eb594a920358d7e409337960d2f8b64b, type: 2}
     meshID: 12
 --- !u!137 &1186386378 stripped
 SkinnedMeshRenderer:
@@ -626,7 +629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510924486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.388, y: 1.299, z: 3.1}
+  m_LocalPosition: {x: 0.71, y: 1.299, z: 1.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -817,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_RootOrder
@@ -974,6 +977,12 @@ SkinnedMeshRenderer:
 --- !u!137 &1796991132 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700026, guid: 8f0565f23a2b58541a475bd3c1393052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796991130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1796991133 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700032, guid: 8f0565f23a2b58541a475bd3c1393052,
     type: 3}
   m_PrefabInstance: {fileID: 1796991130}
   m_PrefabAsset: {fileID: 0}

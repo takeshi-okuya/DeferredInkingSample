@@ -27,11 +27,11 @@ Material:
     - _MaxWidth: 4
     - _MinWidth: 0.5
     - _NormalThreshold: 0.7
-    - _OutlineWidth: 2
+    - _OutlineWidth: 5
     - _Use_Depth: 1
     - _Use_Normal: 1
     - _Use_Object_ID: 1
     - _Width_By_Distance: 1
     - _Width_By_FoV: 1
     m_Colors:
-    - _Color: {r: 0.5660378, g: 0.469001, b: 0.013349946, a: 1}
+    - _Color: {r: 0.4245283, g: 0.39214757, b: 0.23429157, a: 1}
