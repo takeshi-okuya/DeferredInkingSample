@@ -59,8 +59,8 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DepthRange: 0.01
-    - _DepthThreshold: 0.1
+    - _DepthRange: 0.51
+    - _DepthThreshold: 0.3
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -70,7 +70,7 @@ Material:
     - _Metallic: 0
     - _MinWidth: 0.5
     - _Mode: 0
-    - _NormalThreshold: 0.64
+    - _NormalThreshold: 0.7
     - _OcclusionStrength: 1
     - _OutlineWidth: 2
     - _Parallax: 0.02

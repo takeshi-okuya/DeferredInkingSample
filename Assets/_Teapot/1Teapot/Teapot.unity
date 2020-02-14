@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: teapot_edit
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: a28f020a9c7ea554d89f6ab71eab4252, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a28f020a9c7ea554d89f6ab71eab4252, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -483,8 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c3fe87247db304c83be595e75e901a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gBufferResolutionMode: 0
-  customGBufferResolution: {x: 1920, y: 1080}
+  generateGBuffer: 1
 --- !u!114 &1779087964
 MonoBehaviour:
   m_ObjectHideFlags: 0

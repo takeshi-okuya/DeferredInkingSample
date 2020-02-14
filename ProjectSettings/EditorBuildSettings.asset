@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Teapot/1Teapot/Teapot.unity
+    guid: 60f5ec531450c3c4c85e7b3e528121eb
   m_configObjects: {}
