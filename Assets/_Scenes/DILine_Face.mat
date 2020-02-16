@@ -22,14 +22,14 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Cull: 0
-    - _CurvatureMaxWidth: 1
+    - _CurvatureMaxWidth: 3
     - _CurvatureThreshold: 70
     - _DepthRange: 0.2
     - _DepthThreshold: 0.02
     - _MaxWidth: 40
     - _MinWidth: 0.5
     - _NormalThreshold: 0.5
-    - _OutlineWidth: 5
+    - _OutlineWidth: 3
     - _Use_Curvature: 1
     - _Use_Depth: 1
     - _Use_Normal: 0

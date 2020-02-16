@@ -25,11 +25,11 @@ Material:
     - _CurvatureMaxWidth: 1
     - _CurvatureThreshold: 100
     - _DepthRange: 0.2
-    - _DepthThreshold: 0.71
+    - _DepthThreshold: 0.07
     - _MaxWidth: 40
     - _MinWidth: 0.5
-    - _NormalThreshold: 0.6
-    - _OutlineWidth: 15
+    - _NormalThreshold: 0.512
+    - _OutlineWidth: 10
     - _Use_Curvature: 1
     - _Use_Depth: 1
     - _Use_Normal: 1

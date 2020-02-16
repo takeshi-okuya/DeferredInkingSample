@@ -10,7 +10,6 @@ Material:
   m_Name: DILine_HairBack
   m_Shader: {fileID: 4800000, guid: fe2801cc74a25c443b25ac9dde738d08, type: 3}
   m_ShaderKeywords: _CULL_OFF _USE_CURVATURE_ON _USE_DEPTH_ON _USE_NORMAL_ON _USE_OBJECT_ID_ON
-    _WIDTH_BY_DISTANCE_ON _WIDTH_BY_FOV_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,12 +28,12 @@ Material:
     - _MaxWidth: 4
     - _MinWidth: 0.5
     - _NormalThreshold: 0.13
-    - _OutlineWidth: 8
+    - _OutlineWidth: 4
     - _Use_Curvature: 1
     - _Use_Depth: 1
     - _Use_Normal: 1
     - _Use_Object_ID: 1
-    - _Width_By_Distance: 1
-    - _Width_By_FoV: 1
+    - _Width_By_Distance: 0
+    - _Width_By_FoV: 0
     m_Colors:
     - _Color: {r: 0.4245283, g: 0.39214757, b: 0.23429157, a: 1}
