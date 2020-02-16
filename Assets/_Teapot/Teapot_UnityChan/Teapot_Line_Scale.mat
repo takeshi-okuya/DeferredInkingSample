@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Teapot_Line
+  m_Name: Teapot_Line_Scale
   m_Shader: {fileID: 4800000, guid: fe2801cc74a25c443b25ac9dde738d08, type: 3}
   m_ShaderKeywords: _CULL_BACK _USE_CURVATURE_ON _USE_DEPTH_ON _USE_NORMAL_ON
   m_LightmapFlags: 4
@@ -58,21 +58,23 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cull: 2
+    - _CurvatureMaxWidth: 1
+    - _CurvatureThreshold: 5
     - _Cutoff: 0.5
     - _DepthRange: 0.01
-    - _DepthThreshold: 0.1
+    - _DepthThreshold: 0.01
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MaxWidth: 4
+    - _MaxWidth: 3.91
     - _Metallic: 0
     - _MinWidth: 0.5
     - _Mode: 0
-    - _NormalThreshold: 0.64
+    - _NormalThreshold: 0.7
     - _OcclusionStrength: 1
-    - _OutlineWidth: 7
+    - _OutlineWidth: 5
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
