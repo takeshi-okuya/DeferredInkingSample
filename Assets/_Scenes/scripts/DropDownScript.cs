@@ -40,7 +40,8 @@ namespace WCGL
                 var meshes = model.meshes;
                 for(int i=0; i < meshes.Count; i++)
                 {
-                    var mat = new Material(meshes[i].material);
+                    var mesh = meshes[i];
+                    var mat = mesh.material;
 
                     if (selected == 0)
                     {
@@ -56,17 +57,24 @@ namespace WCGL
                         mat.shader = backPolygonShader;
                     }
 
-                    var mesh = meshes[i];
-                    mesh.material = mat;
                     meshes[i] = mesh;
                 }
             }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnDisable()
         {
-
+            foreach (var model in models)
+            {
+                var meshes = model.meshes;
+                for (int i = 0; i < meshes.Count; i++)
+                {
+                    var mesh = meshes[i];
+                    var mat = mesh.material;
+                    mat.shader = originalShaders[mat.name];
+                    meshes[i] = mesh;
+                }
+            }
         }
     }
 }
