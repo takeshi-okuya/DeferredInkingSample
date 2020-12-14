@@ -23,10 +23,16 @@ Material:
     - _Cull: 2
     - _DepthRange: 0.2
     - _DepthThreshold: 1
+    - _Fill_Corner: 0
+    - _MaxWidth: 4
+    - _MinWidth: 0.5
     - _NormalThreshold: 0.5
     - _OutlineWidth: 5
     - _Use_Depth: 0
     - _Use_Normal: 0
     - _Use_Object_ID: 1
+    - _Width_By_Distance: 0
+    - _Width_By_FoV: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

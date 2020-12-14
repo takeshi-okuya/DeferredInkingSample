@@ -24,6 +24,7 @@ Material:
     - _Cull: 0
     - _DepthRange: 0.2
     - _DepthThreshold: 0.025
+    - _Fill_Corner: 0
     - _MaxWidth: 4
     - _MinWidth: 0.5
     - _NormalThreshold: 0.5
@@ -35,3 +36,4 @@ Material:
     - _Width_By_FoV: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
