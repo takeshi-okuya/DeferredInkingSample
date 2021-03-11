@@ -9,7 +9,7 @@ namespace WCGL
     [ExecuteInEditMode]
     public class DeferredInkingCamera : MonoBehaviour
     {
-        static Material DrawMaterial, GBufferMaterial;
+        static Material DrawMaterial;
 
         Camera cam;
         CommandBuffer commandBuffer;
@@ -23,7 +23,7 @@ namespace WCGL
         public ResolutionMode gBufferResolutionMode = ResolutionMode.Same;
         public Vector2Int customGBufferResolution = new Vector2Int(1920, 1080);
 
-        enum RenderPhase { GBuffer, Line }
+        public enum RenderPhase { GBuffer, Line }
 
         void resizeRenderTexture()
         {
@@ -83,9 +83,6 @@ namespace WCGL
             {
                 var shader = Shader.Find("Hidden/DeferredInking/Draw");
                 DrawMaterial = new Material(shader);
-
-                shader = Shader.Find("Hidden/DeferredInking/GBuffer");
-                GBufferMaterial = new Material(shader);
             }
         }
 
@@ -104,11 +101,11 @@ namespace WCGL
         {
             var depthBuffer = (gBufferResolutionMode == ResolutionMode.Same) ?
                 (RenderTargetIdentifier)BuiltinRenderTextureType.Depth : gBufferDepth;
-            if (depthBuffer == gBufferDepth) renderGBufferZero();
+            if (depthBuffer == gBufferDepth) renderGBufferDepth();
 
             commandBuffer.SetRenderTarget(gBuffer.colorBuffer, depthBuffer);
             commandBuffer.ClearRenderTarget(false, true, Color.clear);
-            render(RenderPhase.GBuffer);
+            DeferredInkingModel.RenderActiveInstances(commandBuffer, RenderPhase.GBuffer);
 
             return depthBuffer;
         }
@@ -123,7 +120,7 @@ namespace WCGL
             if (cam.orthographic) { commandBuffer.EnableShaderKeyword("_ORTHO_ON"); }
             else { commandBuffer.DisableShaderKeyword("_ORTHO_ON"); }
 
-            render(RenderPhase.Line);
+            DeferredInkingModel.RenderActiveInstances(commandBuffer, RenderPhase.Line);
         }
 
         void renewFilter()
@@ -160,71 +157,30 @@ namespace WCGL
             blitToFrameBuffer();
         }
 
-        private void addShadowCaster(Renderer r, Material mat, int meshIdx)
-        {
-            int passCount = mat.passCount;
-
-            for (int i = 0; i < passCount; i++)
-            {
-                if (mat.GetPassName(i) == "ShadowCaster")
-                {
-                    commandBuffer.DrawRenderer(r, mat, meshIdx, i);
-                    return;
-                }
-            }
-        }
-
-        private void renderGBufferZero()
+        static List<GameObject> _RootGameObjects = new List<GameObject>();
+        static List<Renderer> _Renderers = new List<Renderer>();
+        static List<Material> _SharedMaterials = new List<Material>();
+        private void renderGBufferDepth()
         {
             commandBuffer.SetRenderTarget(gBuffer, gBufferDepth);
             commandBuffer.ClearRenderTarget(true, true, Color.clear);
             commandBuffer.SetGlobalVector("unity_LightShadowBias", Vector4.zero);
 
-            var renderers = FindObjectsOfType<Renderer>();
-            foreach (var r in renderers)
+            gameObject.scene.GetRootGameObjects(_RootGameObjects);
+            foreach (var root in _RootGameObjects)
             {
-                if (r.isVisible == false) continue;
-                var sr = r as SkinnedMeshRenderer;
-
-                var mesh = sr == null ? r.GetComponent<MeshFilter>().sharedMesh : sr.sharedMesh;
-                int subMeshCount = mesh.subMeshCount;
-                var materials = r.sharedMaterials;
-
-                for (int i = 0; i < subMeshCount; i++)
+                root.GetComponentsInChildren<Renderer>(_Renderers);
+                foreach (var r in _Renderers)
                 {
-                    int matIdx = Math.Min(i, materials.Length - 1);
-                    var mat = materials[matIdx];
-                    addShadowCaster(r, mat, i);
-                }
-            }
-        }
+                    if (r.isVisible == false) continue;
 
-        private void render(RenderPhase phase)
-        {
-            Material mat = GBufferMaterial;
-
-            foreach (var model in DeferredInkingModel.GetInstances())
-            {
-                if (model.isActiveAndEnabled == false) continue;
-                var id = new Vector2(model.modelID, 0);
-
-                foreach (var mesh in model.meshes)
-                {
-                    var renderer = mesh.mesh;
-                    if (renderer == null || renderer.enabled == false) continue;
-
-                    if (phase == RenderPhase.Line)
+                    r.GetSharedMaterials(_SharedMaterials);
+                    for (int i = 0; i < _SharedMaterials.Count; i++)
                     {
-                        mat = mesh.material;
-                        if (mat == null) continue;
+                        var mat = _SharedMaterials[i];
+                        int passIndex = mat.FindPass("ShadowCaster");
+                        if (passIndex >= 0) { commandBuffer.DrawRenderer(r, mat, i, passIndex); }
                     }
-
-                    if (phase == RenderPhase.GBuffer || mat.GetTag("LineType", false) == "DeferredInking")
-                    {
-                        id.y = mesh.meshID;
-                        commandBuffer.SetGlobalVector("_ID", id);
-                    }
-                    commandBuffer.DrawRenderer(renderer, mat);
                 }
             }
         }
