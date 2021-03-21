@@ -26,7 +26,7 @@ namespace WCGL
                 foreach (var mesh in model.meshes)
                 {
                     var mat = mesh.material;
-                    originalShaders[mat.name] = mat.shader;
+                    if (mat != null) { originalShaders[mat.name] = mat.shader; }
                 }
             }
         }
@@ -42,10 +42,10 @@ namespace WCGL
                 {
                     var mesh = meshes[i];
                     var mat = mesh.material;
+                    if (mat == null) continue;
 
                     if (selected == 0)
                     {
-
                         mat.shader = originalShaders[mat.name];
                     }
                     else if (selected == 1)
@@ -71,6 +71,8 @@ namespace WCGL
                 {
                     var mesh = meshes[i];
                     var mat = mesh.material;
+                    if (mat == null) continue;
+
                     mat.shader = originalShaders[mat.name];
                     meshes[i] = mesh;
                 }
