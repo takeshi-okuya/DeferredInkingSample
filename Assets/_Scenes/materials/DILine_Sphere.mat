@@ -23,6 +23,8 @@ Material:
     - _Cull: 2
     - _DepthRange: 0.2
     - _DepthThreshold: 1
+    - _DifferentMeshID: 0
+    - _DifferentModelID: 0
     - _Fill_Corner: 0
     - _MaxWidth: 4
     - _MinWidth: 0.5
