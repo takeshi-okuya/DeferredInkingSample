@@ -13,12 +13,13 @@
         _MaxWidth("Max Width", FLOAT) = 4.0
 
         [Header(Detection)]
-        [Toggle] _Use_Object_ID("Use Object ID", Float) = 1
+        [Enum(Off, 255, Sufficiency, 0, Necessary, 1, Not, 2)] _DifferentModelID("Different Model ID", INT) = 0
+        [Enum(Off, 255, Sufficiency, 0, Necessary, 1, Not, 2)] _DifferentMeshID("Different Mesh ID", INT) = 0
         [Space]
-        [Toggle] _Use_Depth("Use Depth", Float) = 0
+        [Enum(Off, 255, Sufficiency, 0, Necessary, 1, Not, 2)] _Use_Depth("Use Depth", INT) = 255
         _DepthThreshold("Threshold_Depth", FLOAT) = 2.0
         [Space]
-        [Toggle] _Use_Normal("Use Normal", Float) = 0
+        [Enum(Off, 255, Sufficiency, 0, Necessary, 1, Not, 2)] _Use_Normal("Use Normal", INT) = 255
         _NormalThreshold("Threshold_Normal", Range(-1, 1)) = 0.5
         _DepthRange("Depth_Range", FLOAT) = 0.2
         [Space]
@@ -38,17 +39,12 @@
 
             #include "UnityCG.cginc"
 
-            #pragma multi_compile _ _USE_OBJECT_ID_ON
-            #pragma multi_compile _ _USE_DEPTH_ON
-            #pragma multi_compile _ _USE_NORMAL_ON
             #pragma multi_compile _ _FILL_CORNER_ON
 
             struct appdata
             {
                 float4 vertex : POSITION;
-                #ifdef _USE_NORMAL_ON
                 float3 normal : NORMAL;
-                #endif
             };
 
             struct v2g
@@ -56,10 +52,7 @@
                 float4 vertex : POSITION0;
                 float2 projXY : TEXCOORD0;
                 float4 viewPos_width : TEXCOORD1; //xyz: viewPos, w: width
-
-                #ifdef _USE_NORMAL_ON
                 float3 normal : NORMAL0;
-                #endif
             };
 
             struct g2f
@@ -67,10 +60,8 @@
                 float4 vertex : SV_POSITION;
                 noperspective float2 centerScreenPosXY : TEXCOORD1;
                 float centerViewPosZ : TEXCOORD2;
-
-                #ifdef _USE_NORMAL_ON
                 float3 normal : TEXCOORD3;
-                #endif
+
                 #ifdef _FILL_CORNER_ON
                 float2 corner : TEXCOORD4; //x:radius, y:isCorner(1 or 0).
                 #endif
@@ -86,7 +77,13 @@
 
             int _Cull;
 
+            int _DifferentModelID;
+            int _DifferentMeshID;
+
+            int _Use_Depth;
             float _DepthThreshold;
+
+            int _Use_Normal;
             float _NormalThreshold;
             float _DepthRange;
 
@@ -119,9 +116,7 @@
                 o.viewPos_width.xyz = UnityObjectToViewPos(v.vertex);
                 o.viewPos_width.w = compWidth(-o.viewPos_width.z);
 
-                #ifdef _USE_NORMAL_ON
-                    o.normal = COMPUTE_VIEW_NORMAL;
-                #endif
+                o.normal = COMPUTE_VIEW_NORMAL;
 
                 return o;
             }
@@ -172,9 +167,7 @@
 
                 o.centerViewPosZ = -p.viewPos_width.z;
 
-                #ifdef _USE_NORMAL_ON
-                    o.normal = p.normal;
-                #endif
+                o.normal = p.normal;
 
                 #ifdef _FILL_CORNER_ON
                     o.corner = float2(p.viewPos_width.w * 0.5f, 0);
@@ -269,11 +262,7 @@
                 return sub.x + sub.y < 0.1f;
             }
 
-        #ifdef _USE_NORMAL_ON
-            void sampleGBuffers(float2 uv, out bool3x3 isSameIDs, out float2 normals[3][3])
-        #else
-            void sampleGBuffers(float2 uv, out bool3x3 isSameIDs)
-        #endif
+            void sampleGBuffers(float2 uv, out bool3x3 isSameModelIDs, out bool3x3 isSameMaterialIDs, out float2 normals[3][3])
             {
                 [unroll]
                 for (int y = -1; y <= 1; y++)
@@ -283,11 +272,12 @@
                     {
                         float2 _uv = uv + float2(x, y) * _GBuffer_TexelSize;
                         float4 g = _GBuffer.Sample(my_point_clamp_sampler, _uv);
-                        isSameIDs[y + 1][x + 1] = isSameID(g.zw);
 
-                        #ifdef _USE_NORMAL_ON
-                            normals[y + 1][x + 1] = g.xy;
-                        #endif
+                        float2 sub = abs(g.zw * 255.0f - _ID);
+                        isSameModelIDs[y + 1][x + 1] = sub.x <= 0.1f;
+                        isSameMaterialIDs[y + 1][x + 1] = sub.y <= 0.1f;
+
+                        normals[y + 1][x + 1] = g.xy;
                     }
                 }
             }
@@ -341,6 +331,25 @@
                 clip(isDraw - 0.1f);
             }
 
+            void addConditions(int condition, bool isFill, inout int3 isDrawTimes, inout int3 isDrawTrues)
+            {
+                if (condition == 0)
+                {
+                    isDrawTimes[0] += 1;
+                    isDrawTrues[0] += isFill;
+                }
+                else if (condition == 1)
+                {
+                    isDrawTimes[1] += 1;
+                    isDrawTrues[1] += isFill;
+                }
+                else
+                {
+                    isDrawTimes[2] += 1;
+                    isDrawTrues[2] += isFill;
+                }
+            }
+
             fixed4 frag(g2f i) : SV_Target
             {
                 #ifdef _FILL_CORNER_ON
@@ -348,34 +357,49 @@
                 #endif
 
                 float2 uv = i.centerScreenPosXY;
-                bool3x3 isSameIDs;
-                #ifdef _USE_NORMAL_ON
-                    float2 normals[3][3];
-                    sampleGBuffers(uv, isSameIDs, normals);
-                #else
-                    sampleGBuffers(uv, isSameIDs);
-                #endif
+                bool3x3 isSameModelIDs, isSameMeshIDs;
+                float2 normals[3][3];
+                sampleGBuffers(uv, isSameModelIDs, isSameMeshIDs, normals);
 
+                bool3x3 isSameIDs = isSameModelIDs && isSameMeshIDs;
                 clip(any(isSameIDs) - 0.1f);
                 clipDepthID(i.vertex.xy, i.centerViewPosZ);
 
                 bool isDraw = false;
                 float3x3 depths = sampleDepths(uv);
 
-                #ifdef _USE_OBJECT_ID_ON
-                    isDraw = isDraw || any(!isSameIDs && (depths > i.centerViewPosZ));
-                #endif
+                int3 isDrawTimes = int3(0, 0, 0);
+                int3 isDrawTrues = int3(0, 0, 0);
 
-                #ifdef _USE_DEPTH_ON
-                    isDraw = isDraw || any(depths - i.centerViewPosZ > _DepthThreshold);
-                #endif
+                bool3x3 isDeeps = depths > i.centerViewPosZ;
+                if (_DifferentModelID != 255)
+                {
+                    bool isFill = any(!isSameModelIDs && isDeeps);
+                    addConditions(_DifferentModelID, isFill, isDrawTimes, isDrawTrues);
+                }
 
-                #ifdef _USE_NORMAL_ON
-                    isDraw = isDraw || detectNormal(i.normal, i.centerViewPosZ, normals, depths);
-                #endif
+                if (_DifferentMeshID != 255)
+                {
+                    bool isFill = any(!isSameMeshIDs && isDeeps);
+                    addConditions(_DifferentMeshID, isFill, isDrawTimes, isDrawTrues);
+                }
 
-                clip(isDraw - 0.1f);
+                if (_Use_Depth != 255)
+                {
+                    bool isFill = any(depths - i.centerViewPosZ > _DepthThreshold);
+                    addConditions(_Use_Depth, isFill, isDrawTimes, isDrawTrues);
+                }
 
+                if (_Use_Normal != 255)
+                {
+                    bool isFill = detectNormal(i.normal, i.centerViewPosZ, normals, depths);
+                    addConditions(_Use_Normal, isFill, isDrawTimes, isDrawTrues);
+                }
+
+                if (isDrawTrues.x + isDrawTrues.y == 0 || isDrawTimes.y != isDrawTrues.y || isDrawTrues.z > 0)
+                {
+                    clip(-1);
+                }
                 return _Color;
             }
             ENDCG
